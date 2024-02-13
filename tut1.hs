@@ -28,15 +28,15 @@ likes _ _ = False
 
 
 --1.6.1.2
-instance Eq E where
+{-instance Eq E where
     (==) :: E -> E -> T
     Albert == Albert = True
     Bob == Bob = True
     Xena == Xena = True
     Yoko == Yoko = True
-    _ == _ = False
+    _ == _ = False-}
 
---1.6.1.3
+--1.6.1.3 The derived instance of Eq is the same. show Bob == show Bob = True, just like Bob == Bob = True.
 
 
 --1.7.1.1 eigenlijk int maar goed
