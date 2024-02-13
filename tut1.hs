@@ -1,7 +1,4 @@
 -- Nadine Kraakman, studentnumber: 7244444
-{-# OPTIONS_GHC -Wno-unrecognised-pragmas #-}
-{-# HLINT ignore "Use camelCase" #-}
-{-# HLINT ignore "Use foldr" #-}
 module Tut1 where
 
 --1.4.1.1. The type of John is E
