@@ -22,12 +22,12 @@ girl Yoko = True
 
 --1.4.1.5
 likes :: E -> E -> T
-likes Yoko boy = True
-likes boy Xena = True
+likes Yoko person = boy person
+likes person Xena = boy person
 likes _ _ = False
 
 
---1.6.1.2 shortcut????
+--1.6.1.2
 instance Eq E where
     (==) :: E -> E -> T
     Albert == Albert = True
