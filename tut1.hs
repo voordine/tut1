@@ -1,4 +1,7 @@
 -- Nadine Kraakman, studentnumber: 7244444
+{-# OPTIONS_GHC -Wno-unrecognised-pragmas #-}
+{-# HLINT ignore "Use camelCase" #-}
+{-# HLINT ignore "Use foldr" #-}
 module Tut1 where
 
 --1.4.1.1. The type of John is E
@@ -39,24 +42,25 @@ likes _ _ = False
 --1.6.1.3 The derived instance of Eq is the same. show Bob == show Bob = True, just like Bob == Bob = True.
 
 
---1.7.1.1 eigenlijk int maar goed
-count :: [a] -> Double
+--1.7.1.1
+count :: [a] -> Int
 count [] = 0
 count (_:t) = 1 + count t
 
 --1.7.1.2
-sumvalue :: [Double] -> Double
-sumvalue [] = 0
-sumvalue (h:t) = h + sum t
+sumlist :: Num a => [a] -> a
+sumlist [] = 0
+sumlist (h:t) = h + sumlist t
 
 --1.7.1.3
-average :: [Double] -> Double
-average [] = error "Da kannie vriend"
-average ht = sumvalue ht / count ht
+average :: (Fractional a) => [a] -> a
+average [] = error "Empty list"
+average ht = sumlist ht / fromIntegral (count ht)
 
 --1.7.1.4
-squared :: [Double] -> [Double]
+squared :: (Num a) => [a] -> [a]
 squared = map (\ h -> h * h)
+
 
 --1.7.2.2
 boys :: [E] -> [E]
@@ -70,7 +74,6 @@ my_intersection set1 set2 = [x | x <- set1, x `elem` set2]
 
 my_union ::(Eq a)=> [a] -> [a] -> [a]
 my_union set1 set2 = set1 ++ [y | y <- set2, y `notElem` set1]
-
 
 --1.7.2.5
 cartesian :: [a] -> [b] -> [(a,b)]
